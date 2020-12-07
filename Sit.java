@@ -76,17 +76,17 @@ public class Sit extends JFrame {
  		PreparedStatement ps=null;
 		String insertsql = "insert into student values(st_seq.nextval,?,?,?)";
 		
- 		//JDBCµå¶óÀÌ¹ö¸¦ ¸Ş¸ğ¸®¿¡ ¿Ã¸®±â
+ 		//JDBCë“œë¼ì´ë²„ë¥¼ ë©”ëª¨ë¦¬ì— ì˜¬ë¦¬ê¸°
  		try {
  			Class.forName("oracle.jdbc.driver.OracleDriver");
- 			System.out.println("JDBC µå¶óÀÌ¹ö¸¦ ¸Ş¸ğ¸®¿¡ ¿Ã¸®´Â Áß...");
+ 			System.out.println("JDBC ë“œë¼ì´ë²„ë¥¼ ë©”ëª¨ë¦¬ì— ì˜¬ë¦¬ëŠ” ì¤‘...");
  			
- 			//DB¿Í ¿¬°áÇØ¼­ Connection°´Ã¼ »ı¼ºÇÏ±â
+ 			//DBì™€ ì—°ê²°í•´ì„œ Connectionê°ì²´ ìƒì„±í•˜ê¸°
  			con=DriverManager.getConnection(url, "BAE", "12345");
- 			System.out.println("DB¿¬°á ¼º°ø");
+ 			System.out.println("DBì—°ê²° ì„±ê³µ");
  			
- 			st=con.createStatement();//sql¹® ½ÇÇà;
- 			rs=st.executeQuery(sql); //sql¹® ½ÇÇà °á°ú°ª »ı¼º
+ 			st=con.createStatement();//sqlë¬¸ ì‹¤í–‰;
+ 			rs=st.executeQuery(sql); //sqlë¬¸ ì‹¤í–‰ ê²°ê³¼ê°’ ìƒì„±
  			
 // 			while(rs.next()) {
 //				String name=rs.getString("name");
@@ -97,15 +97,15 @@ public class Sit extends JFrame {
  			
  			
  		} catch (ClassNotFoundException e) {
- 			System.out.println("JDBC µå¶óÀÌ¹ö¸¦ Ã£Áö ¸øÇß½À´Ï´Ù.");
+ 			System.out.println("JDBC ë“œë¼ì´ë²„ë¥¼ ì°¾ì§€ ëª»í–ˆìŠµë‹ˆë‹¤.");
  		} catch (SQLException e) {
- 			System.out.println("DB¿¬°á ½ÇÆĞ");
+ 			System.out.println("DBì—°ê²° ì‹¤íŒ¨");
  		}
 	}
 
 
 	public Sit() {
-		setTitle("ÀÚ¸®¿¹¸ÅSystem");
+		setTitle("ìë¦¬ì˜ˆë§¤System");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 959, 780);
 		contentPane = new JPanel();
@@ -137,26 +137,26 @@ public class Sit extends JFrame {
 //		ImagePanel panel=new ImagePanel (new ImageIcon("./image/javasitp.jpeg").getImage());
 //		contentPane.add(panel);
 		
-		JPanel startpage = new JPanel(/*new ImageIcon("./image/javasitp.jpeg").getImage()*/);
+		ImagePanel startpage = new ImagePanel(new ImageIcon("./image/javasitp.jpeg").getImage());
 		startpage.setBounds(0, 0, 943, 741);
 		contentPane.add(startpage);
 		startpage.setLayout(null);
 		
-		JPanel signuppage = new JPanel(/*new ImageIcon("./image/javasitp.jpeg").getImage()*/);
-		signuppage.setBounds(0, 0, 943, 741);
-		contentPane.add(signuppage);
-		
-		JPanel sitchairpage = new JPanel(/*new ImageIcon("./image/javasitp.jpeg").getImage()*/);
+		ImagePanel sitchairpage = new ImagePanel(new ImageIcon("./image/javasitp.jpeg").getImage());
 		sitchairpage.setBounds(0, 0, 943, 741);
 		contentPane.add(sitchairpage);
 		sitchairpage.setLayout(null);
 		
-		JPanel mainpage = new JPanel(/*new ImageIcon("./image/javasitp.jpeg").getImage()*/);
+		ImagePanel signuppage = new ImagePanel(new ImageIcon("./image/javasitp.jpeg").getImage());
+		signuppage.setBounds(0, 0, 943, 741);
+		contentPane.add(signuppage);
+		
+		ImagePanel mainpage = new ImagePanel(new ImageIcon("./image/javasitp.jpeg").getImage());
 		mainpage.setBounds(0, 0, 943, 741);
 		contentPane.add(mainpage);
 		mainpage.setLayout(null);
 		
-		//½ÃÀÛÆäÀÌÁö ¿Ü ´Ù¸¥ÆĞ³ÎÀº ¾Èº¸ÀÌ°Ô
+		//ì‹œì‘í˜ì´ì§€ ì™¸ ë‹¤ë¥¸íŒ¨ë„ì€ ì•ˆë³´ì´ê²Œ
 		
 		signuppage.setVisible(false);
 		sitchairpage.setVisible(false);
@@ -196,13 +196,14 @@ public class Sit extends JFrame {
 				sitchairpage.setVisible(true);
 			}
 		});
-		btnNewButton_5.setFont(new Font("±¼¸²", Font.PLAIN, 30));
+		btnNewButton_5.setFont(new Font("êµ´ë¦¼", Font.PLAIN, 30));
 		btnNewButton_5.setBounds(268, 288, 369, 258);
 		mainpage.add(btnNewButton_5);
 		
 		JButton btnNewButton_6 = new JButton("Log out");
 		btnNewButton_6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null, "ë¡œê·¸ì•„ì›ƒ í•©ë‹ˆë‹¤.");
 				mainpage.setVisible(false);
 				startpage.setVisible(true);
 			}
@@ -212,100 +213,400 @@ public class Sit extends JFrame {
 		
 		JLabel label_3 = new JLabel("Sit Down Ass");
 		label_3.setForeground(Color.MAGENTA);
-		label_3.setFont(new Font("±¼¸²", Font.PLAIN, 90));
+		label_3.setFont(new Font("êµ´ë¦¼", Font.PLAIN, 90));
 		label_3.setBounds(190, 10, 565, 257);
 		mainpage.add(label_3);
 		
 		JButton btnNewButton_3 = new JButton("A1");
+		btnNewButton_3.setBackground(Color.green);
+		btnNewButton_3.addActionListener(new ActionListener() {
+			int Clickcount = 0;
+			//ë²„íŠ¼ì„ ëˆŒë €ì„ë•Œ
+			public void actionPerformed(ActionEvent e) {
+				if(Clickcount == 0 || Clickcount%2==0) {
+					btnNewButton_3.setBackground(Color.red);
+					Clickcount++;
+				}
+				else if(Clickcount == 1 || Clickcount%2!=0) {
+					btnNewButton_3.setBackground(Color.green);
+					Clickcount++;
+				}
+			}
+		});
 		btnNewButton_3.setBounds(82, 80, 117, 108);
 		sitchairpage.add(btnNewButton_3);
 		
 		JButton btnA = new JButton("A2");
+		btnA.setBackground(Color.green);
+		btnA.addActionListener(new ActionListener() {
+			int Clickcount = 0;
+			//ë²„íŠ¼ì„ ëˆŒë €ì„ë•Œ
+			public void actionPerformed(ActionEvent e) {
+				if(Clickcount == 0 || Clickcount%2==0) {
+					btnA.setBackground(Color.red);
+					Clickcount++;
+				}
+				else if(Clickcount == 1 || Clickcount%2!=0) {
+					btnA.setBackground(Color.green);
+					Clickcount++;
+				}
+			}
+		});
 		btnA.setBounds(235, 80, 117, 108);
 		sitchairpage.add(btnA);
 		
 		JButton btnA_1 = new JButton("A3");
+		btnA_1.setBackground(Color.green);
+		btnA_1.addActionListener(new ActionListener() {
+			int Clickcount = 0;
+			//ë²„íŠ¼ì„ ëˆŒë €ì„ë•Œ
+			public void actionPerformed(ActionEvent e) {
+				if(Clickcount == 0 || Clickcount%2==0) {
+					btnA_1.setBackground(Color.red);
+					Clickcount++;
+				}
+				else if(Clickcount == 1 || Clickcount%2!=0) {
+					btnA_1.setBackground(Color.green);
+					Clickcount++;
+				}
+			}
+		});
 		btnA_1.setBounds(397, 80, 117, 108);
 		sitchairpage.add(btnA_1);
 		
 		JButton btnA_2 = new JButton("A4");
+		btnA_2.setBackground(Color.green);
+		btnA_2.addActionListener(new ActionListener() {
+			int Clickcount = 0;
+			//ë²„íŠ¼ì„ ëˆŒë €ì„ë•Œ
+			public void actionPerformed(ActionEvent e) {
+				if(Clickcount == 0 || Clickcount%2==0) {
+					btnA_2.setBackground(Color.red);
+					Clickcount++;
+				}
+				else if(Clickcount == 1 || Clickcount%2!=0) {
+					btnA_2.setBackground(Color.green);
+					Clickcount++;
+				}
+			}
+		});
 		btnA_2.setBounds(566, 80, 117, 108);
 		sitchairpage.add(btnA_2);
 		
 		JButton btnA_3 = new JButton("A5");
+		btnA_3.setBackground(Color.green);
+		btnA_3.addActionListener(new ActionListener() {
+			int Clickcount = 0;
+			//ë²„íŠ¼ì„ ëˆŒë €ì„ë•Œ
+			public void actionPerformed(ActionEvent e) {
+				if(Clickcount == 0 || Clickcount%2==0) {
+					btnA_3.setBackground(Color.red);
+					Clickcount++;
+				}
+				else if(Clickcount == 1 || Clickcount%2!=0) {
+					btnA_3.setBackground(Color.green);
+					Clickcount++;
+				}
+			}
+		});
 		btnA_3.setBounds(721, 80, 117, 108);
 		sitchairpage.add(btnA_3);
 		
 		JButton btnB = new JButton("B1");
+		btnB.setBackground(Color.green);
+		btnB.addActionListener(new ActionListener() {
+			int Clickcount = 0;
+			//ë²„íŠ¼ì„ ëˆŒë €ì„ë•Œ
+			public void actionPerformed(ActionEvent e) {
+				if(Clickcount == 0 || Clickcount%2==0) {
+					btnB.setBackground(Color.red);
+					Clickcount++;
+				}
+				else if(Clickcount == 1 || Clickcount%2!=0) {
+					btnB.setBackground(Color.green);
+					Clickcount++;
+				}
+			}
+		});
 		btnB.setBounds(82, 241, 117, 108);
 		sitchairpage.add(btnB);
 		
 		JButton btnB_1 = new JButton("B2");
+		btnB_1.setBackground(Color.green);
+		btnB_1.addActionListener(new ActionListener() {
+			int Clickcount = 0;
+			//ë²„íŠ¼ì„ ëˆŒë €ì„ë•Œ
+			public void actionPerformed(ActionEvent e) {
+				if(Clickcount == 0 || Clickcount%2==0) {
+					btnB_1.setBackground(Color.red);
+					Clickcount++;
+				}
+				else if(Clickcount == 1 || Clickcount%2!=0) {
+					btnB_1.setBackground(Color.green);
+					Clickcount++;
+				}
+			}
+		});
 		btnB_1.setBounds(235, 241, 117, 108);
 		sitchairpage.add(btnB_1);
 		
 		JButton btnB_2 = new JButton("B3");
+		btnB_2.setBackground(Color.green);
+		btnB_2.addActionListener(new ActionListener() {
+			int Clickcount = 0;
+			//ë²„íŠ¼ì„ ëˆŒë €ì„ë•Œ
+			public void actionPerformed(ActionEvent e) {
+				if(Clickcount == 0 || Clickcount%2==0) {
+					btnB_2.setBackground(Color.red);
+					Clickcount++;
+				}
+				else if(Clickcount == 1 || Clickcount%2!=0) {
+					btnB_2.setBackground(Color.green);
+					Clickcount++;
+				}
+			}
+		});
 		btnB_2.setBounds(397, 241, 117, 108);
 		sitchairpage.add(btnB_2);
 		
 		JButton btnB_3 = new JButton("B4");
+		btnB_3.setBackground(Color.green);
+		btnB_3.addActionListener(new ActionListener() {
+			int Clickcount = 0;
+			//ë²„íŠ¼ì„ ëˆŒë €ì„ë•Œ
+			public void actionPerformed(ActionEvent e) {
+				if(Clickcount == 0 || Clickcount%2==0) {
+					btnB_3.setBackground(Color.red);
+					Clickcount++;
+				}
+				else if(Clickcount == 1 || Clickcount%2!=0) {
+					btnB_3.setBackground(Color.green);
+					Clickcount++;
+				}
+			}
+		});
 		btnB_3.setBounds(566, 241, 117, 108);
 		sitchairpage.add(btnB_3);
 		
 		JButton btnB_4 = new JButton("B5");
+		btnB_4.setBackground(Color.green);
+		btnB_4.addActionListener(new ActionListener() {
+			int Clickcount = 0;
+			//ë²„íŠ¼ì„ ëˆŒë €ì„ë•Œ
+			public void actionPerformed(ActionEvent e) {
+				if(Clickcount == 0 || Clickcount%2==0) {
+					btnB_4.setBackground(Color.red);
+					Clickcount++;
+				}
+				else if(Clickcount == 1 || Clickcount%2!=0) {
+					btnB_4.setBackground(Color.green);
+					Clickcount++;
+				}
+			}
+		});
 		btnB_4.setBounds(721, 241, 117, 108);
 		sitchairpage.add(btnB_4);
-		
 		JButton btnC = new JButton("C1");
+		btnC.setBackground(Color.green);
+		btnC.addActionListener(new ActionListener() {
+			int Clickcount = 0;
+			//ë²„íŠ¼ì„ ëˆŒë €ì„ë•Œ
+			public void actionPerformed(ActionEvent e) {
+				if(Clickcount == 0 || Clickcount%2==0) {
+					btnC.setBackground(Color.red);
+					Clickcount++;
+				}
+				else if(Clickcount == 1 || Clickcount%2!=0) {
+					btnC.setBackground(Color.green);
+					Clickcount++;
+				}
+			}
+		});
 		btnC.setBounds(82, 395, 117, 108);
 		sitchairpage.add(btnC);
 		
 		JButton btnC_1 = new JButton("C2");
+		btnC_1.setBackground(Color.green);
+		btnC_1.addActionListener(new ActionListener() {
+			int Clickcount = 0;
+			//ë²„íŠ¼ì„ ëˆŒë €ì„ë•Œ
+			public void actionPerformed(ActionEvent e) {
+				if(Clickcount == 0 || Clickcount%2==0) {
+					btnC_1.setBackground(Color.red);
+					Clickcount++;
+				}
+				else if(Clickcount == 1 || Clickcount%2!=0) {
+					btnC_1.setBackground(Color.green);
+					Clickcount++;
+				}
+			}
+		});
 		btnC_1.setBounds(235, 395, 117, 108);
 		sitchairpage.add(btnC_1);
 		
 		JButton btnC_2 = new JButton("C3");
+		btnC_2.setBackground(Color.green);
+		btnC_2.addActionListener(new ActionListener() {
+			int Clickcount = 0;
+			//ë²„íŠ¼ì„ ëˆŒë €ì„ë•Œ
+			public void actionPerformed(ActionEvent e) {
+				if(Clickcount == 0 || Clickcount%2==0) {
+					btnC_2.setBackground(Color.red);
+					Clickcount++;
+				}
+				else if(Clickcount == 1 || Clickcount%2!=0) {
+					btnC_2.setBackground(Color.green);
+					Clickcount++;
+				}
+			}
+		});
 		btnC_2.setBounds(397, 395, 117, 108);
 		sitchairpage.add(btnC_2);
 		
 		JButton btnC_3 = new JButton("C4");
+		btnC_3.setBackground(Color.green);
+		btnC_3.addActionListener(new ActionListener() {
+			int Clickcount = 0;
+			//ë²„íŠ¼ì„ ëˆŒë €ì„ë•Œ
+			public void actionPerformed(ActionEvent e) {
+				if(Clickcount == 0 || Clickcount%2==0) {
+					btnC_3.setBackground(Color.red);
+					Clickcount++;
+				}
+				else if(Clickcount == 1 || Clickcount%2!=0) {
+					btnC_3.setBackground(Color.green);
+					Clickcount++;
+				}
+			}
+		});
 		btnC_3.setBounds(566, 395, 117, 108);
 		sitchairpage.add(btnC_3);
 		
 		JButton btnC_4 = new JButton("C5");
+		btnC_4.setBackground(Color.green);
+		btnC_4.addActionListener(new ActionListener() {
+			int Clickcount = 0;
+			//ë²„íŠ¼ì„ ëˆŒë €ì„ë•Œ
+			public void actionPerformed(ActionEvent e) {
+				if(Clickcount == 0 || Clickcount%2==0) {
+					btnC_4.setBackground(Color.red);
+					Clickcount++;
+				}
+				else if(Clickcount == 1 || Clickcount%2!=0) {
+					btnC_4.setBackground(Color.green);
+					Clickcount++;
+				}
+			}
+		});
 		btnC_4.setBounds(721, 395, 117, 108);
 		sitchairpage.add(btnC_4);
 		
 		JButton btnD = new JButton("D1");
+		btnD.setBackground(Color.green);
+		btnD.addActionListener(new ActionListener() {
+			int Clickcount = 0;
+			//ë²„íŠ¼ì„ ëˆŒë €ì„ë•Œ
+			public void actionPerformed(ActionEvent e) {
+				if(Clickcount == 0 || Clickcount%2==0) {
+					btnD.setBackground(Color.red);
+					Clickcount++;
+				}
+				else if(Clickcount == 1 || Clickcount%2!=0) {
+					btnD.setBackground(Color.green);
+					Clickcount++;
+				}
+			}
+		});
 		btnD.setBounds(82, 549, 117, 108);
 		sitchairpage.add(btnD);
 		
 		JButton btnD_1 = new JButton("D2");
+		btnD_1.setBackground(Color.green);
+		btnD_1.addActionListener(new ActionListener() {
+			int Clickcount = 0;
+			//ë²„íŠ¼ì„ ëˆŒë €ì„ë•Œ
+			public void actionPerformed(ActionEvent e) {
+				if(Clickcount == 0 || Clickcount%2==0) {
+					btnD_1.setBackground(Color.red);
+					Clickcount++;
+				}
+				else if(Clickcount == 1 || Clickcount%2!=0) {
+					btnD_1.setBackground(Color.green);
+					Clickcount++;
+				}
+			}
+		});
 		btnD_1.setBounds(235, 549, 117, 108);
 		sitchairpage.add(btnD_1);
 		
 		JButton btnD_2 = new JButton("D3");
+		btnD_2.setBackground(Color.green);
+		btnD_2.addActionListener(new ActionListener() {
+			int Clickcount = 0;
+			//ë²„íŠ¼ì„ ëˆŒë €ì„ë•Œ
+			public void actionPerformed(ActionEvent e) {
+				if(Clickcount == 0 || Clickcount%2==0) {
+					btnD_2.setBackground(Color.red);
+					Clickcount++;
+				}
+				else if(Clickcount == 1 || Clickcount%2!=0) {
+					btnD_2.setBackground(Color.green);
+					Clickcount++;
+				}
+			}
+		});
 		btnD_2.setBounds(397, 549, 117, 108);
 		sitchairpage.add(btnD_2);
 		
 		JButton btnD_3 = new JButton("D4");
+		btnD_3.setBackground(Color.green);
+		btnD_3.addActionListener(new ActionListener() {
+			int Clickcount = 0;
+			//ë²„íŠ¼ì„ ëˆŒë €ì„ë•Œ
+			public void actionPerformed(ActionEvent e) {
+				if(Clickcount == 0 || Clickcount%2==0) {
+					btnD_3.setBackground(Color.red);
+					Clickcount++;
+				}
+				else if(Clickcount == 1 || Clickcount%2!=0) {
+					btnD_3.setBackground(Color.green);
+					Clickcount++;
+				}
+			}
+		});
 		btnD_3.setBounds(566, 549, 117, 108);
 		sitchairpage.add(btnD_3);
 		
 		JButton btnD_4 = new JButton("D5");
+		btnD_4.setBackground(Color.green);
+		btnD_4.addActionListener(new ActionListener() {
+			int Clickcount = 0;
+			//ë²„íŠ¼ì„ ëˆŒë €ì„ë•Œ
+			public void actionPerformed(ActionEvent e) {
+				if(Clickcount == 0 || Clickcount%2==0) {
+					btnD_4.setBackground(Color.red);
+					Clickcount++;
+				}
+				else if(Clickcount == 1 || Clickcount%2!=0) {
+					btnD_4.setBackground(Color.green);
+					Clickcount++;
+				}
+			}
+		});
 		btnD_4.setBounds(721, 549, 117, 108);
 		sitchairpage.add(btnD_4);
 		
 		JLabel lblNewLabel_3 = new JLabel("Sit Down Ass");
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_3.setForeground(Color.MAGENTA);
-		lblNewLabel_3.setFont(new Font("±¼¸²", Font.BOLD, 20));
+		lblNewLabel_3.setFont(new Font("êµ´ë¦¼", Font.BOLD, 20));
 		lblNewLabel_3.setBounds(380, 21, 147, 48);
 		sitchairpage.add(lblNewLabel_3);
 		
 		JButton btnNewButton_4 = new JButton("Reservation");
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null, "ìë¦¬ê°€ ì˜ˆì•½ë˜ì—ˆìŠµë‹ˆë‹¤.");
 				sitchairpage.setVisible(false);
 				mainpage.setVisible(true);
 			}
@@ -313,21 +614,56 @@ public class Sit extends JFrame {
 		btnNewButton_4.setBounds(397, 694, 117, 37);
 		sitchairpage.add(btnNewButton_4);
 		
-		JButton btnNewButton_7 = new JButton("Cancle");
+		JButton btnNewButton_7 = new JButton("Initialization");
 		btnNewButton_7.addActionListener(new ActionListener() {
+			//Cancle ë²„íŠ¼ì„ ëˆ„ë¥¼ì‹œ
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null, "ëª¨ë“  ìë¦¬ê°€ ì´ˆê¸°í™” ë˜ì—ˆìŠµë‹ˆë‹¤.");
+				//Aë¼ì¸ ë²„íŠ¼ ì´ˆë¡ìƒ‰ìœ¼ë¡œ ì´ˆê¸°í™”
+				btnNewButton_3.setBackground(Color.green);
+				btnA.setBackground(Color.green);
+				btnA_1.setBackground(Color.green);
+				btnA_2.setBackground(Color.green);
+				btnA_3.setBackground(Color.green);
+				//Bë¼ì¸ ë²„íŠ¼ ì´ˆë¡ìƒ‰ìœ¼ë¡œ ì´ˆê¸°í™”
+				btnB.setBackground(Color.green);
+				btnB_1.setBackground(Color.green);
+				btnB_2.setBackground(Color.green);
+				btnB_3.setBackground(Color.green);
+				btnB_4.setBackground(Color.green);
+				//Cë¼ì¸ ë²„íŠ¼ ì´ˆë¡ìƒ‰ìœ¼ë¡œ ì´ˆê¸°í™”
+				btnC.setBackground(Color.green);
+				btnC_1.setBackground(Color.green);
+				btnC_2.setBackground(Color.green);
+				btnC_3.setBackground(Color.green);
+				btnC_4.setBackground(Color.green);
+				//Dë¼ì¸ ë²„íŠ¼ ì´ˆë¡ìƒ‰ìœ¼ë¡œ ì´ˆê¸°í™”
+				btnD.setBackground(Color.green);
+				btnD_1.setBackground(Color.green);
+				btnD_2.setBackground(Color.green);
+				btnD_3.setBackground(Color.green);
+				btnD_4.setBackground(Color.green);
+				
+			}
+		});
+		btnNewButton_7.setBounds(721, 697, 117, 34);
+		sitchairpage.add(btnNewButton_7);
+		
+		JButton btnNewButton_2 = new JButton("Cancle");
+		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				sitchairpage.setVisible(false);
 				mainpage.setVisible(true);
 			}
 		});
-		btnNewButton_7.setBounds(82, 694, 117, 30);
-		sitchairpage.add(btnNewButton_7);
+		btnNewButton_2.setBounds(85, 701, 114, 30);
+		sitchairpage.add(btnNewButton_2);
 		
 		
 		
 		JLabel lblNewLabel = new JLabel("Sit Down Ass");
 		lblNewLabel.setForeground(Color.MAGENTA);
-		lblNewLabel.setFont(new Font("±¼¸²", Font.PLAIN, 90));
+		lblNewLabel.setFont(new Font("êµ´ë¦¼", Font.PLAIN, 90));
 		lblNewLabel.setBounds(192, 10, 565, 257);
 		startpage.add(lblNewLabel);
 		
@@ -335,13 +671,13 @@ public class Sit extends JFrame {
 		
 		JLabel lblNewLabel_1 = new JLabel("Name :");
 		lblNewLabel_1.setForeground(Color.RED);
-		lblNewLabel_1.setFont(new Font("±¼¸²", Font.BOLD, 30));
+		lblNewLabel_1.setFont(new Font("êµ´ë¦¼", Font.BOLD, 30));
 		lblNewLabel_1.setBounds(212, 342, 137, 55);
 		startpage.add(lblNewLabel_1);
 		
 		JLabel lblPnum = new JLabel(" Pwd  :");
 		lblPnum.setForeground(Color.RED);
-		lblPnum.setFont(new Font("±¼¸²", Font.BOLD, 30));
+		lblPnum.setFont(new Font("êµ´ë¦¼", Font.BOLD, 30));
 		lblPnum.setBounds(212, 430, 137, 55);
 		startpage.add(lblPnum);
 		
@@ -352,17 +688,17 @@ public class Sit extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String loginname = nametext.getText();
 				String loginpwd = passwordField.getText();
-				int a = login(loginname, loginpwd); //·Î±×ÀÎ ¸Ş¼­µå
+				int a = login(loginname, loginpwd); //ë¡œê·¸ì¸ ë©”ì„œë“œ
 				if(a == 1) {
 					startpage.setVisible(false);
 					mainpage.setVisible(true);
-					//ÅØ½ºÆ®ÇÊµå ÃÊ±âÈ­
+					//í…ìŠ¤íŠ¸í•„ë“œ ì´ˆê¸°í™”
 					nametext.setText("");
 					passwordField.setText("");
 				} 
 				else {
-					JOptionPane.showMessageDialog(null, "·Î±×ÀÎ ½ÇÆĞ");
-					//ÅØ½ºÆ®ÇÊµå ÃÊ±âÈ­
+					JOptionPane.showMessageDialog(null, "ë¡œê·¸ì¸ ì‹¤íŒ¨");
+					//í…ìŠ¤íŠ¸í•„ë“œ ì´ˆê¸°í™”
 					nametext.setText("");
 					passwordField.setText("");
 				}
@@ -378,7 +714,7 @@ public class Sit extends JFrame {
 				try {
 					Class.forName("oracle.jdbc.driver.OracleDriver");
 					con=DriverManager.getConnection(url, "BAE", "12345");
-					System.out.println("DB¿¬°á ¼º°ø");
+					System.out.println("DBì—°ê²° ì„±ê³µ");
 					
 					st=con.createStatement();
 					rs=st.executeQuery(selectsql);
@@ -390,9 +726,9 @@ public class Sit extends JFrame {
 						pwd=rs.getString(2);
 						
 						if(loginname.equals(name) && loginpwd.equals(pwd)) {
-							JOptionPane.showMessageDialog(null, "·Î±×ÀÎ ¼º°ø");
+							JOptionPane.showMessageDialog(null, "ë¡œê·¸ì¸ ì„±ê³µ");
 							return 1; 
-							//·Î±×ÀÎ ¼º°ø½Ã true¹İÈ¯
+							//ë¡œê·¸ì¸ ì„±ê³µì‹œ trueë°˜í™˜
 						}
 						else {
 							continue;
@@ -400,15 +736,15 @@ public class Sit extends JFrame {
 					}
 					
 				} catch (SQLException e) {
-					System.out.println("JDBC µå¶óÀÌ¹ö¸¦ Ã£Áö ¸øÇß½À´Ï´Ù.");
+					System.out.println("JDBC ë“œë¼ì´ë²„ë¥¼ ì°¾ì§€ ëª»í–ˆìŠµë‹ˆë‹¤.");
 					e.printStackTrace();
 					
 				} catch (ClassNotFoundException e) {
-					System.out.println("DB¿¬°á ½ÇÆĞ");
+					System.out.println("DBì—°ê²° ì‹¤íŒ¨");
 					e.printStackTrace();
 				}
 				return 0;
-				//·Î±×ÀÎ ½ÇÆĞ½Ã false¹İÈ¯
+				//ë¡œê·¸ì¸ ì‹¤íŒ¨ì‹œ falseë°˜í™˜
 			}
 		});
 		btnNewButton.setBounds(487, 558, 97, 23);
@@ -419,6 +755,8 @@ public class Sit extends JFrame {
 		JButton btnNewButton_1 = new JButton("Signup >");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				nametext.setText("");
+				passwordField.setText("");
 				startpage.setVisible(false);
 				signuppage.setVisible(true);
 			}
@@ -429,13 +767,14 @@ public class Sit extends JFrame {
 		JLabel lblNewLabel_4 = new JLabel("Login");
 		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_4.setForeground(Color.RED);
-		lblNewLabel_4.setFont(new Font("±¼¸²", Font.BOLD, 25));
+		lblNewLabel_4.setFont(new Font("êµ´ë¦¼", Font.BOLD, 25));
 		lblNewLabel_4.setBounds(419, 250, 97, 69);
 		startpage.add(lblNewLabel_4);
 		
 		JButton btnNewButton_9 = new JButton("Exit >");
 		btnNewButton_9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null, "ì¢…ë£Œí•©ë‹ˆë‹¤.");
 				System.exit(0);
 			}
 		});
@@ -447,25 +786,25 @@ public class Sit extends JFrame {
 		JLabel label = new JLabel("Sit Down Ass");
 		label.setForeground(Color.MAGENTA);
 		label.setBounds(181, 10, 565, 257);
-		label.setFont(new Font("±¼¸²", Font.PLAIN, 90));
+		label.setFont(new Font("êµ´ë¦¼", Font.PLAIN, 90));
 		signuppage.add(label);
 		
 		JLabel label_1 = new JLabel("Name :");
 		label_1.setForeground(Color.RED);
 		label_1.setBounds(255, 320, 136, 55);
-		label_1.setFont(new Font("±¼¸²", Font.BOLD, 30));
+		label_1.setFont(new Font("êµ´ë¦¼", Font.BOLD, 30));
 		signuppage.add(label_1);
 		
 		JLabel label_2 = new JLabel(" Pwd  :");
 		label_2.setForeground(Color.RED);
 		label_2.setBounds(255, 404, 136, 55);
-		label_2.setFont(new Font("±¼¸²", Font.BOLD, 30));
+		label_2.setFont(new Font("êµ´ë¦¼", Font.BOLD, 30));
 		signuppage.add(label_2);
 		
 		JLabel lblPwdck = new JLabel(" PwdCk  :");
 		lblPwdck.setForeground(Color.RED);
 		lblPwdck.setBounds(216, 482, 175, 55);
-		lblPwdck.setFont(new Font("±¼¸²", Font.BOLD, 30));
+		lblPwdck.setFont(new Font("êµ´ë¦¼", Font.BOLD, 30));
 		signuppage.add(lblPwdck);
 		
 		
@@ -479,7 +818,7 @@ public class Sit extends JFrame {
 				String pwdck = pwdcheck.getText();
 				
 //				System.out.println(name+" | "+pwdpwd+" | "+pwdck);
-//				JOptionPane.showMessageDialog(null, "È¸¿ø°¡ÀÔÀ» ÃàÇÏÇÕ´Ï´Ù.");
+//				JOptionPane.showMessageDialog(null, "íšŒì›ê°€ì…ì„ ì¶•í•˜í•©ë‹ˆë‹¤.");
 				
 				if(pwdpwd.equals(pwdck)==true) {
 					insert(name,pwdpwd,pwdck);
@@ -492,7 +831,7 @@ public class Sit extends JFrame {
 					pwdcheck.setText("");
 				}
 				else {
-					JOptionPane.showMessageDialog(null, "ºñ¹Ğ¹øÈ£¸¦ ´Ù½Ã È®ÀÎÇØÁÖ¼¼¿ä.");
+					JOptionPane.showMessageDialog(null, "ë¹„ë°€ë²ˆí˜¸ë¥¼ ë‹¤ì‹œ í™•ì¸í•´ì£¼ì„¸ìš”.");
 				}
 				
 			}
@@ -512,7 +851,7 @@ public class Sit extends JFrame {
 		
 		JLabel lblNewLabel_5 = new JLabel("Sign up");
 		lblNewLabel_5.setForeground(Color.RED);
-		lblNewLabel_5.setFont(new Font("±¼¸²", Font.BOLD, 25));
+		lblNewLabel_5.setFont(new Font("êµ´ë¦¼", Font.BOLD, 25));
 		lblNewLabel_5.setBounds(421, 242, 110, 55);
 		signuppage.add(lblNewLabel_5);
 	
@@ -526,16 +865,16 @@ public class Sit extends JFrame {
  		PreparedStatement ps=null;
 		String insertsql = "insert into meminfo values(?,?,?)";
 		
- 		//JDBCµå¶óÀÌ¹ö¸¦ ¸Ş¸ğ¸®¿¡ ¿Ã¸®±â
+ 		//JDBCë“œë¼ì´ë²„ë¥¼ ë©”ëª¨ë¦¬ì— ì˜¬ë¦¬ê¸°
  		try {
  			Class.forName("oracle.jdbc.driver.OracleDriver");
- 			System.out.println("JDBC µå¶óÀÌ¹ö¸¦ ¸Ş¸ğ¸®¿¡ ¿Ã¸®´Â Áß...");
+ 			System.out.println("JDBC ë“œë¼ì´ë²„ë¥¼ ë©”ëª¨ë¦¬ì— ì˜¬ë¦¬ëŠ” ì¤‘...");
  			
- 			//DB¿Í ¿¬°áÇØ¼­ Connection°´Ã¼ »ı¼ºÇÏ±â
+ 			//DBì™€ ì—°ê²°í•´ì„œ Connectionê°ì²´ ìƒì„±í•˜ê¸°
  			con=DriverManager.getConnection(url, "BAE", "12345");
- 			System.out.println("DB¿¬°á ¼º°ø");
+ 			System.out.println("DBì—°ê²° ì„±ê³µ");
  			
- 			st=con.createStatement(); //sql¹® ½ÇÇà;
+ 			st=con.createStatement(); //sqlë¬¸ ì‹¤í–‰;
  			
  			try {
  				ps=con.prepareStatement(insertsql);
@@ -545,20 +884,19 @@ public class Sit extends JFrame {
  				
  				
  				if(ps.executeUpdate()>=1) {
- 					System.out.println("insert ¼º°ø");
- 					JOptionPane.showMessageDialog(null, "È¸¿ø°¡ÀÔÀ» ÃàÇÏÇÕ´Ï´Ù.");
+ 					System.out.println("insert ì„±ê³µ");
+ 					JOptionPane.showMessageDialog(null, "íšŒì›ê°€ì…ì„ ì¶•í•˜í•©ë‹ˆë‹¤.");
  				}
  				
  			} catch (SQLException e) {
- 				System.out.println("insert ½ÇÆĞ");
- 				JOptionPane.showMessageDialog(null, "È¸¿ø°¡ÀÔÀ» ½ÇÆĞÇÏ¼Ì½À´Ï´Ù. µ¿ÀÏÇÑ ÀÌ¸§À¸·Î °¡ÀÔµÈ È¸¿øÀÌ ÀÖ½À´Ï´Ù.");
+ 				System.out.println("insert ì‹¤íŒ¨");
+ 				JOptionPane.showMessageDialog(null, "íšŒì›ê°€ì…ì„ ì‹¤íŒ¨í•˜ì…¨ìŠµë‹ˆë‹¤. ë™ì¼í•œ ì´ë¦„ìœ¼ë¡œ ê°€ì…ëœ íšŒì›ì´ ìˆìŠµë‹ˆë‹¤.");
  			}
  			
  		} catch (ClassNotFoundException e) {
- 			System.out.println("JDBC µå¶óÀÌ¹ö¸¦ Ã£Áö ¸øÇß½À´Ï´Ù.");
+ 			System.out.println("JDBC ë“œë¼ì´ë²„ë¥¼ ì°¾ì§€ ëª»í–ˆìŠµë‹ˆë‹¤.");
  		} catch (SQLException e) {
- 			System.out.println("DB¿¬°á ½ÇÆĞ");
+ 			System.out.println("DBì—°ê²° ì‹¤íŒ¨");
  		}
 	}
-	
 }
