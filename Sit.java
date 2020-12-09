@@ -166,7 +166,8 @@ public class Sit extends JFrame {
 		mainpage.setVisible(false);
 		setResizable(false);
 		
-		//signup text field
+		//signup text field 
+		//password field는 이클립스 오류 때문에 오라클 넘길 때 오류 생겨서 password field를 사용하지 못 함
 		
 		signupnametest = new JTextField();
 		signupnametest.setBounds(390, 320, 235, 55);
@@ -184,6 +185,7 @@ public class Sit extends JFrame {
 		//----------------------
 		
 		//login text field
+		//password field는 이클립스 오류 때문에 오라클 넘길 때 오류 생겨서 password field를 사용하지 못 함
 		
 		nametext = new JTextField();
 		nametext.setBounds(349, 342, 235, 55);
@@ -199,7 +201,7 @@ public class Sit extends JFrame {
 		JButton btnNewButton_5 = new JButton("Go to reserve a seat");
 		btnNewButton_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				mainpage.setVisible(false);
+				mainpage.setVisible(false);      //클릭 시 자리예약 페이지로 이동
 				sitchairpage.setVisible(true);
 			}
 		});
@@ -210,7 +212,7 @@ public class Sit extends JFrame {
 		JButton btnNewButton_6 = new JButton("Log out");
 		btnNewButton_6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "로그아웃 합니다.");
+				JOptionPane.showMessageDialog(null, "로그아웃 합니다.");   //버튼 클릭 시 로그아웃 함
 				mainpage.setVisible(false);
 				startpage.setVisible(true);
 			}
@@ -399,7 +401,7 @@ public class Sit extends JFrame {
 		btnB_4.setBackground(Color.green);
 		btnB_4.addActionListener(new ActionListener() {
 			int Clickcount = 0;
-			//버튼을 눌렀을때
+			//버튼을 눌렀을때 빨간색 버튼으로 바뀌고 한번 더 누를 시 초록색 버튼으로 바뀌게 하는 코드
 			public void actionPerformed(ActionEvent e) {
 				if(Clickcount == 0 || Clickcount%2==0) {
 					btnB_4.setBackground(Color.red);
@@ -417,7 +419,7 @@ public class Sit extends JFrame {
 		btnC.setBackground(Color.green);
 		btnC.addActionListener(new ActionListener() {
 			int Clickcount = 0;
-			//버튼을 눌렀을때
+			//버튼을 눌렀을때 빨간색 버튼으로 바뀌고 한번 더 누를 시 초록색 버튼으로 바뀌게 하는 코드
 			public void actionPerformed(ActionEvent e) {
 				if(Clickcount == 0 || Clickcount%2==0) {
 					btnC.setBackground(Color.red);
@@ -436,7 +438,7 @@ public class Sit extends JFrame {
 		btnC_1.setBackground(Color.green);
 		btnC_1.addActionListener(new ActionListener() {
 			int Clickcount = 0;
-			//버튼을 눌렀을때
+			//버튼을 눌렀을때 빨간색 버튼으로 바뀌고 한번 더 누를 시 초록색 버튼으로 바뀌게 하는 코드
 			public void actionPerformed(ActionEvent e) {
 				if(Clickcount == 0 || Clickcount%2==0) {
 					btnC_1.setBackground(Color.red);
@@ -455,7 +457,7 @@ public class Sit extends JFrame {
 		btnC_2.setBackground(Color.green);
 		btnC_2.addActionListener(new ActionListener() {
 			int Clickcount = 0;
-			//버튼을 눌렀을때
+			//버튼을 눌렀을때 빨간색 버튼으로 바뀌고 한번 더 누를 시 초록색 버튼으로 바뀌게 하는 코드
 			public void actionPerformed(ActionEvent e) {
 				if(Clickcount == 0 || Clickcount%2==0) {
 					btnC_2.setBackground(Color.red);
@@ -474,7 +476,7 @@ public class Sit extends JFrame {
 		btnC_3.setBackground(Color.green);
 		btnC_3.addActionListener(new ActionListener() {
 			int Clickcount = 0;
-			//버튼을 눌렀을때
+			//버튼을 눌렀을때 빨간색 버튼으로 바뀌고 한번 더 누를 시 초록색 버튼으로 바뀌게 하는 코드
 			public void actionPerformed(ActionEvent e) {
 				if(Clickcount == 0 || Clickcount%2==0) {
 					btnC_3.setBackground(Color.red);
@@ -493,7 +495,7 @@ public class Sit extends JFrame {
 		btnC_4.setBackground(Color.green);
 		btnC_4.addActionListener(new ActionListener() {
 			int Clickcount = 0;
-			//버튼을 눌렀을때
+			//버튼을 눌렀을때 빨간색 버튼으로 바뀌고 한번 더 누를 시 초록색 버튼으로 바뀌게 하는 코드
 			public void actionPerformed(ActionEvent e) {
 				if(Clickcount == 0 || Clickcount%2==0) {
 					btnC_4.setBackground(Color.red);
@@ -512,7 +514,7 @@ public class Sit extends JFrame {
 		btnD.setBackground(Color.green);
 		btnD.addActionListener(new ActionListener() {
 			int Clickcount = 0;
-			//버튼을 눌렀을때
+			//버튼을 눌렀을때 빨간색 버튼으로 바뀌고 한번 더 누를 시 초록색 버튼으로 바뀌게 하는 코드
 			public void actionPerformed(ActionEvent e) {
 				if(Clickcount == 0 || Clickcount%2==0) {
 					btnD.setBackground(Color.red);
@@ -531,7 +533,7 @@ public class Sit extends JFrame {
 		btnD_1.setBackground(Color.green);
 		btnD_1.addActionListener(new ActionListener() {
 			int Clickcount = 0;
-			//버튼을 눌렀을때
+			//버튼을 눌렀을때 빨간색 버튼으로 바뀌고 한번 더 누를 시 초록색 버튼으로 바뀌게 하는 코드
 			public void actionPerformed(ActionEvent e) {
 				if(Clickcount == 0 || Clickcount%2==0) {
 					btnD_1.setBackground(Color.red);
@@ -550,7 +552,7 @@ public class Sit extends JFrame {
 		btnD_2.setBackground(Color.green);
 		btnD_2.addActionListener(new ActionListener() {
 			int Clickcount = 0;
-			//버튼을 눌렀을때
+			//버튼을 눌렀을때 빨간색 버튼으로 바뀌고 한번 더 누를 시 초록색 버튼으로 바뀌게 하는 코드
 			public void actionPerformed(ActionEvent e) {
 				if(Clickcount == 0 || Clickcount%2==0) {
 					btnD_2.setBackground(Color.red);
@@ -569,7 +571,7 @@ public class Sit extends JFrame {
 		btnD_3.setBackground(Color.green);
 		btnD_3.addActionListener(new ActionListener() {
 			int Clickcount = 0;
-			//버튼을 눌렀을때
+			//버튼을 눌렀을때 빨간색 버튼으로 바뀌고 한번 더 누를 시 초록색 버튼으로 바뀌게 하는 코드
 			public void actionPerformed(ActionEvent e) {
 				if(Clickcount == 0 || Clickcount%2==0) {
 					btnD_3.setBackground(Color.red);
@@ -588,7 +590,7 @@ public class Sit extends JFrame {
 		btnD_4.setBackground(Color.green);
 		btnD_4.addActionListener(new ActionListener() {
 			int Clickcount = 0;
-			//버튼을 눌렀을때
+			//버튼을 눌렀을때 빨간색 버튼으로 바뀌고 한번 더 누를 시 초록색 버튼으로 바뀌게 하는 코드
 			public void actionPerformed(ActionEvent e) {
 				if(Clickcount == 0 || Clickcount%2==0) {
 					btnD_4.setBackground(Color.red);
@@ -613,7 +615,7 @@ public class Sit extends JFrame {
 		JButton btnNewButton_4 = new JButton("Reservation");
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "자리가 예약되었습니다.");
+				JOptionPane.showMessageDialog(null, "자리가 예약되었습니다.");  //자리예약 버튼을 누를 시 메인페이지로 나가지며 예약 된 자리는 빨간색 버튼으로 바뀌어있음
 				sitchairpage.setVisible(false);
 				mainpage.setVisible(true);
 			}
@@ -658,7 +660,7 @@ public class Sit extends JFrame {
 		JButton btnNewButton_2 = new JButton("Cancle");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				sitchairpage.setVisible(false);
+				sitchairpage.setVisible(false); //cancle 버튼을 누를 시 자리예약페이지에서 메인페이지로 이동 (취소 버튼이라 아무일도 일어나지 않음)
 				mainpage.setVisible(true);
 			}
 		});
@@ -694,7 +696,7 @@ public class Sit extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String loginname = nametext.getText();
 				String loginpwd = passwordField.getText();
-				int a = login(loginname, loginpwd); //로그인 메서드
+				int a = login(loginname, loginpwd); //로그인 메서드  / a값에 1 or 0을 받아서 조건문에 넣어 로그인 시킴
 				if(a == 1) { //ture라면 로그인
 					startpage.setVisible(false);
 					mainpage.setVisible(true);
@@ -709,7 +711,8 @@ public class Sit extends JFrame {
 					passwordField.setText("");
 				}
 			}
-
+			
+			//로그인 메서드
 			private int login(String loginname, String loginpwd) {
 				String url="jdbc:oracle:thin:@localhost:1521:xe";
 				Connection con=null;
